@@ -22,6 +22,16 @@ export class SlideButton extends LitElement {
         )
       }
 
+      #btn:active {
+        box-shadow: var(
+          --carousel-active-btn-box-shadow,
+          #293198 0.2em 0.2em 0.4em,
+          #ceffff -0.1em -0.1em 0.2em
+        );
+        background-color: var(--carousel-active-btn-background-color);
+        color: var(--carousel-active-btn-color);
+      }
+
       ::slotted(svg) {
         width: 1em;
         height: 1em;
@@ -30,6 +40,7 @@ export class SlideButton extends LitElement {
   override render() {
     return html`
       <div
+        part="internal-btn"
         id="btn"
         tabindex="0"
         role="button"

@@ -45,6 +45,8 @@ export class SimpleCarousel extends LitElement {
       padding: 1em;
       overflow: hidden;
       position: relative;
+      /* --carousel-box-shadow - is custom property with
+      fallback for default styles if var is not defined: */
       box-shadow: var(
         --carousel-box-shadow,
         #293198 0.2em 0.2em 0.4em,
@@ -71,7 +73,7 @@ export class SimpleCarousel extends LitElement {
     };
 
     return html`<slide-button
-        part="buttons left-buton"
+        part="buttons left-button"
         exportparts="internal-btn : buttons"
         @click=${this.navigateToPrevSlide}
       >
@@ -81,7 +83,7 @@ export class SimpleCarousel extends LitElement {
         <slot></slot>
       </div>
       <slide-button
-        part="buttons right-buton"
+        part="buttons right-button"
         exportparts="internal-btn : buttons"
         @click=${this.navigateToNextSlide}
       >
@@ -195,3 +197,17 @@ declare global {
   }
 }
 
+type CustomEvents<K extends string> = {
+  [key in K]: (event: CustomEvent) => void;
+};
+type CustomElement<T, K extends string = ''> = Partial<T & {
+  children: any;
+} & CustomEvents<`on${K}`>>;
+
+declare global {
+  namespace JSX {
+      interface IntrinsicElements {
+          ['carousel-wc']: CustomElement<SimpleCarousel>;
+      }
+  }
+}

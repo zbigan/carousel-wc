@@ -27,7 +27,7 @@ let SimpleCarousel = class SimpleCarousel extends LitElement {
             height: `${this.containerHeight}px`,
         };
         return html `<slide-button
-        part="buttons left-buton"
+        part="buttons left-button"
         exportparts="internal-btn : buttons"
         @click=${this.navigateToPrevSlide}
       >
@@ -37,7 +37,7 @@ let SimpleCarousel = class SimpleCarousel extends LitElement {
         <slot></slot>
       </div>
       <slide-button
-        part="buttons right-buton"
+        part="buttons right-button"
         exportparts="internal-btn : buttons"
         @click=${this.navigateToNextSlide}
       >
@@ -130,6 +130,8 @@ SimpleCarousel.styles = css `
       padding: 1em;
       overflow: hidden;
       position: relative;
+      /* --carousel-box-shadow - is custom property with
+      fallback for default styles if var is not defined: */
       box-shadow: var(
         --carousel-box-shadow,
         #293198 0.2em 0.2em 0.4em,

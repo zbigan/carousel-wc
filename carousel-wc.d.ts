@@ -22,4 +22,18 @@ declare global {
         "carousel-wc": SimpleCarousel;
     }
 }
+declare type CustomEvents<K extends string> = {
+    [key in K]: (event: CustomEvent) => void;
+};
+declare type CustomElement<T, K extends string = ''> = Partial<T & {
+    children: any;
+} & CustomEvents<`on${K}`>>;
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+            ['carousel-wc']: CustomElement<SimpleCarousel>;
+        }
+    }
+}
+export {};
 //# sourceMappingURL=carousel-wc.d.ts.map
