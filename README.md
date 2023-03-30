@@ -5,7 +5,7 @@
 ### See implementation examples:
 - ``npm install``
 - ``npm run build:watch``
-- ``npm run serve``
+- ``npm run serve`` (in new terminal)
 
 ## Styling
 ### To style our web component from outside we will use custom CSS properties and "part" attribute
