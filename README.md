@@ -48,5 +48,5 @@ carousel-wc::part(container) {
   ... code
 }
 ```
-## Example of carousel web component with rich styling documentation from google:
+## Example of carousel web component with rich documentation from google:
 https://github.com/google/playground-elements#styling
