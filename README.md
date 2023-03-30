@@ -2,6 +2,11 @@
 ###  This is code-along session from Lit tutorial:
 [Creating carousel with Lit](https://youtu.be/2RftvylEtrE)
 
+### See implementation examples:
+- ``npm install``
+- ``npm run build:watch``
+- ``npm run serve``
+
 ## Styling
 ### To style our web component from outside we will use custom CSS properties and "part" attribute
 
@@ -40,47 +45,6 @@ carousel-wc {
 ## Using parts examples from the parent CSS example:
 ```
 carousel-wc::part(container) {
-  :root {
-    background-color: #f4f4f4;
-    font-family: Arial;
-  }
-  simple-carousel::part(container) {
-    border-radius: unset;
-    margin: unset;
-    box-shadow: unset;
-    background-color: rgb(215, 218, 222);
-  }
-  simple-carousel::part(buttons) {
-    border-radius: unset;
-    height: 100%;
-    box-shadow: unset;
-    background-color: rgb(20, 150, 241);
-  }
-  simple-carousel {
-    filter: drop-shadow(-1em -1em 0 rgb(6, 4, 24));
-  }
-  simple-carousel::part(buttons):active {
-    background-color: rgb(247, 130, 8);
-    color: white;
-  }
-  body {
-    /* Center the carousel on the page */
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-  }
-  /*
-  Hide the simple-carousel element until it is defined, preventing a flash
-  of unstyled content.
-  */
-  simple-carousel:not(:defined) {
-    display: none;
-  }
+  ... code
 }
 ```
-
-## Example of implementic the automatic carousel (all from ouside of web component):
-[Link](https://github.com/lit/video-series-samples/blob/main/build-it-with-lit/02-simple-carousel/dev/demo-3.html)
