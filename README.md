@@ -27,7 +27,28 @@ Parts:
 - right-button
 - internal-btn (makes part public to direct parent but not outside web component. To make it happen, we use "exportparts" to forward parts from the slide button)
 
-## Using custom CSS properties examples from the parent CSS example:
+## Using custom CSS properties example:
+- Inside web component:
+```
+#container {
+  box-shadow: var(
+    --carousel-box-shadow,
+    #293198 0.2em 0.2em 0.4em,
+    #ceffff -0.1em -0.1em 0.2em
+  );
+}
+
+#btn:active {
+  box-shadow: var(
+    --carousel-active-btn-box-shadow,
+    #293198 0.2em 0.2em 0.4em,
+    #ceffff -0.1em -0.1em 0.2em
+  );
+  background-color: var(--carousel-active-btn-background-color);
+  color: var(--carousel-active-btn-color);
+}
+```
+- Outside web component:
 ```
 carousel-wc {
   --carousel-box-shadow: 0px 6px -3px egba(0, 0, 0, 0.2),
@@ -42,10 +63,20 @@ carousel-wc {
 }
 ```
 
-## Using parts examples from the parent CSS example:
+## Using parts example:
+- Inside web component:
+```
+<div part="container" id="container" style="${styleMap(containerStyles)}">
+  <slot></slot>
+</div>
+```
+- Outside web component:
 ```
 carousel-wc::part(container) {
-  ... code
+  border-radius: unset;
+  margin: unset;
+  box-shadow: unset;
+  background-color: rgb(215, 218, 222);
 }
 ```
 ## Example of carousel web component with rich documentation from google:
